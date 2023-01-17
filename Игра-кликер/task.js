@@ -14,11 +14,10 @@ newspan.textContent = "0";
 
 
 
-let clickNumber = Number(counter.textContent),
-    clicsPerSecond = Number(newspan.textContent);
+let clickNumber = Number(counter.textContent);
 
 
-let start = new Date().getTime()
+// let start = new Date().getTime()
 
 cookie.onclick = function () {
     clickNumber += 1;
@@ -26,11 +25,15 @@ cookie.onclick = function () {
 
     if (cookie.width === 200) {
         cookie.width = 300;
+        start = new Date()
     } else {
         cookie.width = 200;
+        end = new Date()
     }
 
-    newspan.textContent = (clickNumber / ((new Date().getTime()) - start) * 1000).toFixed(2);
+    let time = Math.abs(end - start)
+    newspan.textContent = ((1 / time) * 1000).toFixed(2)
+    // newspan.textContent = (clickNumber / ((new Date().getTime()) - start) * 1000).toFixed(2);
 }
 
 
